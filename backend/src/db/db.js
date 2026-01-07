@@ -7,7 +7,7 @@ function connectToDb() {
       console.log("Connected to DB");
     })
     .catch((error) => {
-      console.log("error connecting to Db", error);
+      console.log("Error connecting to Db", error);
     });
 }
 
