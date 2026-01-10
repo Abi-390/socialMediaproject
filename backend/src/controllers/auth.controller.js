@@ -10,6 +10,10 @@ async function registerController(req,res) {
             message:"User already exists"
         })
     }
+
+    const user = await userModel.create({
+        username,password
+    })
 }
 
 async function loginController(req,res) {
