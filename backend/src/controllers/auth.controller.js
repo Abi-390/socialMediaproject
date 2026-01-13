@@ -17,7 +17,7 @@ async function registerController(req, res) {
   });
 
   res.status(201).json({
-    message: "User has been created successfully",
+    message: "User  created successfully",
     user,
   });
 }
