@@ -14,6 +14,6 @@ connectToDb();
 app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
-app.use("api/posts", postRoutes);
+app.use("/api/posts", postRoutes);
 
 module.exports = app;
