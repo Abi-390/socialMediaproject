@@ -27,6 +27,38 @@ async function createPostController(req,res){
 
 }
 
+async function deletePostController(req, res) {
+  try {
+    const { id } = req.params;
+
+    const post = await postModel.findById(id);
+
+    if (!post) {
+      return res.status(404).json({
+        message: "Post not found",
+      });
+    }
+
+   
+    if (post.user.toString() !== req.user._id.toString()) {
+      return res.status(403).json({
+        message: "You are not allowed to delete this post",
+      });
+    }
+
+    await post.deleteOne();
+
+    res.json({
+      message: "Post deleted successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to delete post",
+    });
+  }
+}
 
 
-module.exports = {createPostController};
+
+
+module.exports = {createPostController,deletePostController};
