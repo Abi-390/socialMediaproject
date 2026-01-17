@@ -6,6 +6,6 @@ const multer = require("multer");
 
 const upload = multer({ storage: multer.memoryStorage() });
 
-router.post("/", authMiddleware, upload.single("image"), createPostController);
+router.post("/", authMiddleware, upload.single("image"), createPostController);//upload.single will  make the file readable by express
 
 module.exports = router;
