@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: ["http://localhost:5173",  "https://captionary-gamma.vercel.app"],
+    origin:   "https://captionary-gamma.vercel.app",
     credentials: true,               
   }))
 
