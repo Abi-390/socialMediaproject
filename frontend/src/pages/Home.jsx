@@ -29,18 +29,27 @@ export default function Home() {
       await deletePost(id);
       fetchPosts();
     } catch (err) {
-      alert("Failed to delete post",err);
+      alert("Failed to delete post", err);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="max-w-xl mx-auto p-4">
-        <h1 className="text-2xl font-bold mb-4 text-center">Create Post</h1>
+    <div className="min-h-screen bg-gradient-to-br from-zinc-950 via-neutral-900 to-zinc-800">
+  <div className="max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto p-4 md:p-6 lg:p-8">
+
+        <h1
+          className=" text-2xl font-extrabold text-center mb-4
+  bg-gradient-to-r from-rose-400 via-orange-400 to-amber-300
+
+  bg-clip-text text-transparent"
+        >
+          Captionary
+        </h1>
 
         <PostForm onPostCreated={fetchPosts} />
 
-        <div className="mt-6 space-y-6">
+        <div className="mt-6 space-y-6 md:space-y-0 md:grid md:grid-cols-2 md:gap-6">
+
           {loading && <p className="text-center">Loading...</p>}
 
           {!loading && posts.length === 0 && (
@@ -51,7 +60,8 @@ export default function Home() {
             <div key={post._id} className="bg-white rounded shadow p-4">
               <img src={post.image} alt="post" className="w-full rounded" />
 
-              <p className="mt-3 text-lg">{post.caption}</p>
+              <p className=" mt-3 text-lg font-medium
+    text-gray-900 ">{post.caption}</p>
 
               <div className="flex justify-between items-center mt-2">
                 <p className="text-sm text-gray-500">@{post.user?.username}</p>

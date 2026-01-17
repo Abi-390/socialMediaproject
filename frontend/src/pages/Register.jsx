@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { register } from "../api/auth";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -19,33 +20,85 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-6 rounded shadow w-80 space-y-4"
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-zinc-950 via-neutral-900 to-zinc-800">
+  <form
+    onSubmit={handleSubmit}
+    className="w-80 p-6 rounded-xl shadow-2xl
+      bg-zinc-900/90 backdrop-blur-md space-y-4"
+  >
+    {/* Brand */}
+    <h2
+      className="
+        text-2xl font-extrabold text-center
+        bg-gradient-to-r from-rose-400 via-orange-400 to-amber-300
+        bg-clip-text text-transparent
+      "
+    >
+      Captionary
+    </h2>
+
+    <p className="text-center text-sm text-zinc-400">
+      Create your account
+    </p>
+
+    {/* Username */}
+    <input
+      type="text"
+      placeholder="Username"
+      className="
+        w-full rounded-lg bg-zinc-800 text-zinc-100
+        placeholder-zinc-400 px-3 py-2
+        border border-zinc-700
+        focus:outline-none focus:ring-2
+        focus:ring-orange-400
+      "
+      value={username}
+      onChange={(e) => setUsername(e.target.value)}
+    />
+
+    {/* Password */}
+    <input
+      type="password"
+      placeholder="Password"
+      className="
+        w-full rounded-lg bg-zinc-800 text-zinc-100
+        placeholder-zinc-400 px-3 py-2
+        border border-zinc-700
+        focus:outline-none focus:ring-2
+        focus:ring-orange-400
+      "
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+    />
+
+    {/* Submit */}
+    <button
+      type="submit"
+      className="
+        w-full py-2 rounded-lg font-semibold text-white
+        bg-gradient-to-r from-rose-500 to-orange-400
+        hover:opacity-90 transition-all duration-300
+      "
+    >
+      Register
+    </button>
+
+    {/* Login link */}
+    <p className="text-center text-sm text-zinc-400">
+      Already have an account?{" "}
+      <Link
+        to="/login"
+        className="
+          font-semibold
+          bg-gradient-to-r from-rose-400 to-orange-300
+          bg-clip-text text-transparent hover:underline
+        "
       >
-        <h2 className="text-xl font-bold text-center">Register</h2>
+        Login
+      </Link>
+    </p>
+  </form>
+</div>
 
-        <input
-          type="text"
-          placeholder="Username"
-          className="border p-2 w-full"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-
-        <input
-          type="password"
-          placeholder="Password"
-          className="border p-2 w-full"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <button className="bg-black text-white w-full py-2">
-          Register
-        </button>
-      </form>
-    </div>
   );
 }

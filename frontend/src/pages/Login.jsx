@@ -21,44 +21,82 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-6 rounded shadow w-80 space-y-4"
-      >
-        <h2 className="text-xl font-bold text-center">Login</h2>
-
-        <input
-          type="text"
-          placeholder="Username"
-          className="border p-2 w-full"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-
-        <input
-          type="password"
-          placeholder="Password"
-          className="border p-2 w-full"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <button className="bg-black text-white w-full py-2">
-  Login
-</button>
-
-<p className="text-center text-sm text-gray-600">
-  Don&apos;t have an account?{" "}
-  <Link
-    to="/register"
-    className="text-black font-semibold hover:underline"
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-zinc-950 via-neutral-900 to-zinc-800">
+  <form
+    onSubmit={handleSubmit}
+    className="w-80 p-6 rounded-xl shadow-2xl
+      bg-zinc-900/90 backdrop-blur-md space-y-4"
   >
-    Register
-  </Link>
-</p>
+    {/* Brand */}
+    <h2
+      className="
+        text-2xl font-extrabold text-center
+        bg-gradient-to-r from-rose-400 via-orange-400 to-amber-300
+        bg-clip-text text-transparent
+      "
+    >
+      Captionary
+    </h2>
 
-      </form>
-    </div>
-  );
+    <p className="text-center text-sm text-zinc-400">
+      Welcome back
+    </p>
+
+    {/* Username */}
+    <input
+      type="text"
+      placeholder="Username"
+      className="
+        w-full rounded-lg bg-zinc-800 text-zinc-100
+        placeholder-zinc-400 px-3 py-2
+        border border-zinc-700
+        focus:outline-none focus:ring-2
+        focus:ring-orange-400
+      "
+      value={username}
+      onChange={(e) => setUsername(e.target.value)}
+    />
+
+    {/* Password */}
+    <input
+      type="password"
+      placeholder="Password"
+      className="
+        w-full rounded-lg bg-zinc-800 text-zinc-100
+        placeholder-zinc-400 px-3 py-2
+        border border-zinc-700
+        focus:outline-none focus:ring-2
+        focus:ring-orange-400
+      "
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+    />
+
+    {/* Submit */}
+    <button
+      type="submit"
+      className="
+        w-full py-2 rounded-lg font-semibold text-white
+        bg-gradient-to-r from-rose-500 to-orange-400
+        hover:opacity-90 transition-all duration-300
+      "
+    >
+      Login
+    </button>
+
+    {/* Register */}
+    <p className="text-center text-sm text-zinc-400">
+      Don&apos;t have an account?{" "}
+      <Link
+        to="/register"
+        className="font-semibold
+          bg-gradient-to-r from-rose-400 to-orange-300
+          bg-clip-text text-transparent hover:underline"
+      >
+        Register
+      </Link>
+    </p>
+  </form>
+</div>
+  )
 }
